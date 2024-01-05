@@ -16,23 +16,21 @@ const InputField = ({
   error,
 }: IProps) => {
   const renderTopRow = () => {
-    if (error)
-      return <span className="text-red-600 font-semibold">{error}</span>;
+    if (error) return <span className="text-red-600 font-semibold">{error}</span>;
     if (label) return <label className="font-semibold">{label}</label>;
 
     return null;
   };
 
-  const dynamicClassName = error ? 'border-red-500 rounded-lg' : 'border-[#754eb477]'
+  const dynamicClassName = error ? 'border-red-500 rounded-lg' : 'border-[#754eb477]';
 
   return <div className="px-4 my-2 w-9/12">
-    {
-        renderTopRow()
-    }
+    {renderTopRow()}
     <Controller
+    defaultValue={""}
     name={inputName}
     control={control}
-    render={(field) => <input {...field} autoComplete="off" type={inputType} className={dynamicClassName}/>}
+    render={({field}) => <input {...field} autoComplete="off" type={inputType} className={dynamicClassName}/>}
     />
   </div>;
 };
