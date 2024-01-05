@@ -17,4 +17,6 @@ export const PATH_DASHBOARD = {
   systemLogs: "/dashboard/system-logs",
   myLogs: "/dashboard/my-logs",
   app: "/dashboard/app",
+  report: "/dashboard/report",
+  download: "/dashboard/download"
 };

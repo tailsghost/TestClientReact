@@ -1,8 +1,12 @@
+import { Toaster } from "react-hot-toast";
+import GlobalRouter from "./routes";
+
 const App = () => {
   return(
-    <h1 className='bg-red-500 p-8'>
-      Hello World!!!
-    </h1>
+    <div>
+      <GlobalRouter/>
+      <Toaster/>
+    </div>
   )
 }
 
