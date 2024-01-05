@@ -39,16 +39,7 @@ const RegisterPage = () => {
     formState: { errors },
     reset,
   } = useForm<IRegisterDto>({
-    resolver: yupResolver(registerScheme),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-      userName: '',
-      email: '',
-      password: '',
-      address: '',
-      numberPhone: '',
-    },
+    resolver: yupResolver(registerScheme)
   });
 
   const onSubmitRegisterForm = async (data: IRegisterDto) => {
@@ -102,44 +93,44 @@ const RegisterPage = () => {
         <InputField
           control={control}
           label="Имя"
-          inputName="Имя"
+          inputName="firstName"
           error={errors.firstName?.message}
         />
         <InputField
           control={control}
           label="Фамилия"
-          inputName="Фамилия"
+          inputName="lastName"
           error={errors.lastName?.message}
         />
         <InputField
           control={control}
           label="Номер телефона"
-          inputName="Номер телефона"
+          inputName="numberPhone"
           error={errors.numberPhone?.message}
         />
         <InputField
           control={control}
           label="Имя пользователя"
-          inputName="Имя пользователя"
+          inputName="userName"
           error={errors.userName?.message}
         />
         <InputField
           control={control}
           label="Email"
-          inputName="Email"
+          inputName="email"
           error={errors.email?.message}
         />
         <InputField
           control={control}
           label="Пароль"
-          inputName="Пароль"
+          inputName="password"
           inputType="password"
           error={errors.password?.message}
         />
         <InputField
           control={control}
           label="Адрес"
-          inputName="Адрес"
+          inputName="address"
           error={errors.address?.message}
         />
 

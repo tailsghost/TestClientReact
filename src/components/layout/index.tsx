@@ -12,7 +12,7 @@ const Layout = () => {
   const sideBarRenderer = () => {
     if (
       isAuthenticated &&
-      pathname.toLocaleLowerCase().startsWith("/dashboard")
+      pathname.toLowerCase().startsWith('/dashboard')
     ) {
       return <Sidebar />;
     }
