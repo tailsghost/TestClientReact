@@ -3,8 +3,9 @@ export interface IRegisterDto {
   lastName: string;
   userName: string;
   email: string;
+  password: string;
+  address: string;
   numberPhone: string;
-  adress: string;
 }
 
 export interface ILoginDto {
@@ -28,7 +29,7 @@ export interface IAuthUser {
   roles: string[];
 }
 
-export interface ILoginResponceDto {
+export interface ILoginResponseDto {
   newToken: string;
   userInfo: IAuthUser;
 }
@@ -62,7 +63,7 @@ export interface IAuthContext {
     email: string,
     numberPhone: string,
     password: string,
-    adress: string
+    address: string
   ) => Promise<void>;
 
   logout: () => void;

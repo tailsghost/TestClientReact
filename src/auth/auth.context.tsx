@@ -11,7 +11,7 @@ import {
   IAuthContextAction,
   IAuthContextActionTypes,
   IAuthContextState,
-  ILoginResponceDto,
+  ILoginResponseDto,
 } from "../types/auth.types";
 
 import { getSession, setSession } from "./auth.utils";
@@ -70,7 +70,7 @@ const AuthContextProvider = ({ children }: IProps) => {
     try {
       const token = getSession();
       if (token) {
-        const responce = await axiosInstance.post<ILoginResponceDto>(ME_URL, {
+        const responce = await axiosInstance.post<ILoginResponseDto>(ME_URL, {
           token,
         });
         const { newToken, userInfo } = responce.data;
@@ -127,7 +127,7 @@ const AuthContextProvider = ({ children }: IProps) => {
   );
 
   const login = useCallback(async (userName: string, password: string) => {
-    const responce = await axiosInstance.post<ILoginResponceDto>(LOGIN_URL, {
+    const responce = await axiosInstance.post<ILoginResponseDto>(LOGIN_URL, {
       userName,
       password,
     });
@@ -158,8 +158,9 @@ const AuthContextProvider = ({ children }: IProps) => {
     logout,
   };
 
-  return (<AuthContext.Provider value={valuesObject}>{children}</AuthContext.Provider>)
+  return (
+    <AuthContext.Provider value={valuesObject}>{children}</AuthContext.Provider>
+  );
 };
 
-
-export default AuthContextProvider
+export default AuthContextProvider;
