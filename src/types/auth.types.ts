@@ -5,7 +5,7 @@ export interface IRegisterDto {
   email: string;
   password: string;
   address: string;
-  numberPhone: string;
+  phoneNumber: string;
 }
 
 export interface ILoginDto {
@@ -24,7 +24,7 @@ export interface IAuthUser {
   lastName: string;
   userName: string;
   email: string;
-  numberPhone: string;
+  phoneNumber: string;
   createdAt: string;
   roles: string[];
 }
@@ -61,7 +61,7 @@ export interface IAuthContext {
     lastName: string,
     userName: string,
     email: string,
-    numberPhone: string,
+    phoneNumber: string,
     password: string,
     address: string
   ) => Promise<void>;

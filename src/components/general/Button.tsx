@@ -1,5 +1,5 @@
 interface IProps {
-  variant: "primary" | "secondary" | "danger" | "light";
+  variant: "primary" | "secondary" | "danger" | "light" | "sidebar";
   type: "submit" | "button";
   label: string;
   onClick: () => void;
@@ -21,6 +21,9 @@ const Button = ({
   const secondaryClasses =
     " text-white bg-amber-400 border-amber-400 hover:shadow-[0_0_5px_5px_#fbbe2465]";
 
+    const sidebarClasses =
+    " text-white bg-amber-400 border-amber-400 hover:shadow-[0_0_5px_5px_#fbbe2465] h-14";
+
   const dangerClasses =
     " text-white bg-[#AE899A] border-[#AE899A] hover:shadow-[0_0_5px_5px_#ae899a70]";
 
@@ -29,7 +32,7 @@ const Button = ({
 
   const classNameCreater = (): string => {
     let finalClassName =
-      "flex justify-center items-center outline-none duration-300 h-10 text-lg font-semibold px-6 rounded-2xl border-2";
+      "flex justify-center items-center outline-none duration-400 h-10 text-lg font-semibold px-6 rounded-2xl border-2";
     if (variant === "primary") {
       finalClassName += primaryClasses;
     } else if (variant === "secondary") {
@@ -38,7 +41,8 @@ const Button = ({
       finalClassName += dangerClasses;
     } else if (variant === "light") {
       finalClassName += lightClasses;
-    }
+    } else if (variant === "sidebar")
+      finalClassName += sidebarClasses;
 
     finalClassName +=
       " disabled:shadow-none disabled:bg-gray-300 disabled:border-gray-300";

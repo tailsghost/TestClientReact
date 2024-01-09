@@ -14,23 +14,28 @@ const RegisterPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const { register } = useAuth();
 
-  const phoneRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  const phoneRegExp = /[+7][0-9]{10}$/;
+  // /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+  const nameRegExp = /^[а-яёА-ЯЁ]+$/;
+
+  const nameRegExpEng = /^[a-zA-Z0-9_]+$/;
 
   const registerScheme = Yup.object().shape({
-    firstName: Yup.string().required("Поле обязательно для заполнения!!"),
-    lastName: Yup.string().required("Поле обязательно для заполнения!!"),
-    userName: Yup.string().required("Поле обязательно для заполнения!!"),
+    firstName: Yup.string().required("Поле обязательно для заполнения!!").matches(nameRegExp, "Только русские буквы").min(3, "Имя должно быть не менее 3х символов!"),
+    lastName: Yup.string().required("Поле обязательно для заполнения!!").matches(nameRegExp, "Только русские буквы").min(3, "Фамилия должна быть не менее 3х символов!"),
+    userName: Yup.string().required("Поле обязательно для заполнения!!").matches(nameRegExpEng, "Только английские буквы и цифры").min(5, "Логин должен быть не менее 5х символов!"),
     email: Yup.string()
       .required("Поле обязательно для заполнения!!")
       .email("Email должен быть валидным!"),
-    password: Yup.string()
+      password: Yup.string()
       .required("Поле обязательно для заполнения!!")
+      .matches(nameRegExpEng, "Только английские буквы и цифры")
       .min(8, "Пароль должен содержать не менее 8 символов!"),
-    address: Yup.string().required("Поле обязательно для заполнения!!"),
-    numberPhone: Yup.string()
+    address: Yup.string().required("Поле обязательно для заполнения!!").matches(nameRegExp, "Только русские буквы и цифры"),
+    phoneNumber: Yup.string()
       .required("Поле обязательно для заполнения!!")
-      .matches(phoneRegExp, "Номер должен быть правильным!"),
+      .matches(phoneRegExp, "Номер должен быть правильным! (Начиная с +7)").min(12, "Номер телефона имеет 12 символов!"),
   });
 
   const {
@@ -50,21 +55,23 @@ const RegisterPage = () => {
         data.lastName,
         data.userName,
         data.email,
-        data.address,
         data.password,
-        data.numberPhone
+        data.address,
+        data.phoneNumber
       );
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      const err = error as { data: string; status: number };
-      const { status, data } = err;
+      const err = error as { response: string; status: number };
+      const { status, response } = err;
 
-      if (status === 400 || status === 409) toast.error(data);
+      if (status === 400 || status === 409) toast.error(response);
       else
         toast.error(
           "Неизвестная ошибка, пожалуйста, свяжитесь с администратором"
         );
+
+        console.log(error)
     }
   };
 
@@ -105,8 +112,8 @@ const RegisterPage = () => {
         <InputField
           control={control}
           label="Номер телефона"
-          inputName="numberPhone"
-          error={errors.numberPhone?.message}
+          inputName="phoneNumber"
+          error={errors.phoneNumber?.message}
         />
         <InputField
           control={control}

@@ -14,7 +14,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="shrink-0 bg-[#754eb4] w-60 p-2 min-h-[calc(100vh - 48px)] flex flex-col items-stretch gap-8">
+    <div className="shrink-0 bg-[#754eb4] w-60 p-2 min-h-[calc(100vh-48px)] flex flex-col items-stretch gap-8">
       <div className="self-center flex flex-col items-center">
         <CiUser className="w-10 h-10 text-white" />
         <h4 className="text-white">
@@ -26,56 +26,56 @@ const Sidebar = () => {
         label="Управление пользователями"
         onClick={() => handlerClick(PATH_DASHBOARD.usersManagement)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
       <Button
         label="Отправить отзыв"
         onClick={() => handlerClick(PATH_DASHBOARD.sendFeedback)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
       <Button
         label="Все отзывы"
         onClick={() => handlerClick(PATH_DASHBOARD.allFeedback)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
       <Button
         label="Мои отзывы"
         onClick={() => handlerClick(PATH_DASHBOARD.myFeedback)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
       <Button
         label="Все логи"
         onClick={() => handlerClick(PATH_DASHBOARD.systemLogs)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
       <Button
         label="Мои логи"
         onClick={() => handlerClick(PATH_DASHBOARD.myLogs)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
       <Button
         label="Отчет по обращениям"
         onClick={() => handlerClick(PATH_DASHBOARD.report)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
       <Button
         label="Выгрузить все данные"
         onClick={() => handlerClick(PATH_DASHBOARD.download)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
       <hr />
       <Button
         label="Страница приложения"
         onClick={() => handlerClick(PATH_DASHBOARD.app)}
         type="button"
-        variant="secondary"
+        variant="sidebar"
       />
     </div>
   );

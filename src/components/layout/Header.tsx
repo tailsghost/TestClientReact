@@ -11,11 +11,13 @@ const Header = () => {
 
   const userRolesLabelCreater = () => {
     if (user) {
+      console.log(user)
       let result = "";
       user.roles.forEach((role, index) => {
         result += role;
         if (index < user.roles.length - 1) result += ", ";
       });
+      return result
     }
     return "--";
   };
@@ -29,10 +31,10 @@ const Header = () => {
         />
         <div className="flex gap-1">
           <h1 className="px-1 border border-dashed border-purple-300 rounder-lg">
-            Пользователь загружен: {isAuthLoading ? "True" : "--"}
+            Обновление: {isAuthLoading ? "Да" : "--"}
           </h1>
           <h1 className="px-1 border border-dashed border-purple-300 rounder-lg flex items-center gap-1">
-            Пользователь:{" "}
+            Доступ в систему:{" "}
             {isAuthenticated ? (
               <FiUnlock className="text-green-600" />
             ) : (
@@ -51,7 +53,7 @@ const Header = () => {
         {isAuthenticated ? (
           <div className="flex items-center gap-2">
             <Button
-              label="Купить премиум"
+              label="Страница системы"
               onClick={() => navigate(PATH_DASHBOARD.dashboard)}
               type="button"
               variant="light"

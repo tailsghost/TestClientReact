@@ -9,7 +9,7 @@ axiosInstance.interceptors.response.use(
   (responce) => responce,
   (error) =>
     Promise.reject(
-      (error.responce && error.responce) || "General Axios Error happend"
+      (error.responce && error.responce) || error.request
     )
 );
 

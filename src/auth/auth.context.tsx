@@ -108,7 +108,7 @@ const AuthContextProvider = ({ children }: IProps) => {
       email: string,
       password: string,
       address: string,
-      phone: string
+      phoneNumber: string
     ) => {
       const responce = await axiosInstance.post(REGISTER_URL, {
         firstName,
@@ -117,7 +117,7 @@ const AuthContextProvider = ({ children }: IProps) => {
         email,
         password,
         address,
-        phone,
+        phoneNumber,
       });
       console.log("Результат регистрации:", responce);
       toast.success("Регистрация прошла успешно. Войдите в систему");
