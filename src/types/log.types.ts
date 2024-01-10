@@ -1,5 +1,5 @@
 export interface ILogDto {
-    createAt: string;
+    createdAt: string;
     userName: string;
     description: string;
 }
