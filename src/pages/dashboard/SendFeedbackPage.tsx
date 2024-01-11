@@ -1,7 +1,7 @@
 
 const SendFeedbackPage = () => {
   return (
-    <div>SendFeedbackPage</div>
+    <div>В разработке....</div>
   )
 }
 

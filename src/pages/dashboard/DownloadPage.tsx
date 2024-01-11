@@ -1,6 +1,6 @@
 const DownloadPage = () => {
   return (
-    <div>DownloadPage</div>
+    <div>В разработке...</div>
   )
 }
 

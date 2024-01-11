@@ -1,6 +1,6 @@
 const ReportPage = () => {
   return (
-    <div>ReportPage</div>
+    <div>В разработке....</div>
   )
 }
 

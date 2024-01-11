@@ -1,7 +1,7 @@
 
 const AllFeedbackPage = () => {
   return (
-    <div>AllFeedbackPage</div>
+    <div>В разработке....</div>
   )
 }
 

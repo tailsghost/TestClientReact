@@ -72,6 +72,6 @@ export interface IAuthContext {
 export enum RolesEnum {
   OWNER = "Owner",
   ADMIN = "Admin",
-  USER_PREMIUM = "User Premium",
+  USER_PREMIUM = "UserPremium",
   USER = "User",
 }
